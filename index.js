@@ -1,8 +1,22 @@
-for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
+for (var i = 0; i < document.querySelectorAll(".drum").length; i++)
+{
 
-  document.querySelectorAll("Button")[i].addEventListener("click", function() {
+//Button press
+document.querySelectorAll("Button")[i].addEventListener("click", function() {
     var buttonInnerHtml = this.innerHTML;
-    switch (buttonInnerHtml) {
+
+    makeSound(buttonInnerHtml);
+
+  });
+//Keyboard press
+document.addEventListener("keydown", function(event){
+  makeSound(event.key);
+});
+
+  function makeSound(key)
+  {
+    switch (key)
+    {
       case "j":
         var tom1 = new Audio('sounds/tom-1.mp3');
         tom1.play();
@@ -43,5 +57,6 @@ for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
 
     }
 
-  });
+  }
+
 }
